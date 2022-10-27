@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { client, urlFor } from '../library/client';
 import Songtile from '../components/Songtile';
+import Image from 'next/image';
 function Album({ song, colours, music }) {
 
   const router = useRouter()
@@ -26,7 +27,7 @@ function Album({ song, colours, music }) {
         <Link href="/" >
           <div>
           {/* <h1 className='al'>{album[1]}</h1> */}
-                            <img className='navigationbutton' src="../image/back.png" alt="" width="35" />
+                            <Image className='navigationbutton' src="../image/back.png" alt="" width="35" />
                         </div>
         </Link>
         <img className='Albumbigcover' src={urlFor(song.cover)} alt={song.name} />
