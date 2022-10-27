@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@sanity/client": "^3.4.1",

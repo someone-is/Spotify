@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import Link from 'next/link';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { allmusic, bottom, click2, coverurl, musicCover, musicin, opening, photo, playingTrackState, playstate, trackTracker, trackTrackerin, visibility } from '../feature/PlayerAtom';
 import { shuffle } from 'lodash';
@@ -6,7 +7,6 @@ import { fetchSongs } from '../Utilities/FetchSongs';
 import { fetchTracks } from '../Utilities/FetchTracks';
 import { fetchCovers } from '../Utilities/FetchCovers';
 import { fetchMusics } from '../Utilities/FetchMusics';
-import Link from 'next/link';
 import { fetchColours } from '../Utilities/FetchColours';
 function Controller() {
 
@@ -26,7 +26,7 @@ function Controller() {
         setTracks(track);
         setCovers(cover);
         setMusic(musics);
-        console.log("hiii",colour[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background)
+        console.log("hiii", colour[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background)
         setcolours(colour);
         console.log(colour)
         //   console.log(music)
@@ -267,9 +267,9 @@ function Controller() {
 
     return (
         <>
-            <div className={`bottom ${activeSong ? "" : "notplaying"}`} data-open={open} style={first && open?({ background: `linear-gradient(to bottom, ${colours[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background}, #000000 100%)`}):{} }>
+            <div className={`bottom ${activeSong ? "" : "notplaying"}`} data-open={open} style={first && open ? ({ background: `linear-gradient(to bottom, ${colours[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background}, #000000 100%)` }) : {}}>
                 <div className="topopennav" data-open={open}>
-                    <img src="chevron.svg" alt="" className="dropdownbutton" onClick={()=>{setopen(false)}} data-open={open}/>
+                    <img src="chevron.svg" alt="" className="dropdownbutton" onClick={() => { setopen(false) }} data-open={open} />
                     <div className="detailal"><p>playing from playlist</p><p className='topname'>{totaldata?.album}</p></div>
                 </div>
                 <audio src={activeSong} ref={audio} />
@@ -282,8 +282,46 @@ function Controller() {
                     </div>
                 </div>
 
+                {open ? (<div className="playing" data-open={open}>
+                    {first ? (<img className='coverimage' src={totaldata === null ? "" : (coverdata)} alt="" data-open={open} />) : (<img className={clicked ? `coverimage ${opacity}` : `enlargecoverimage ${opacity}`} src={totaldata === null ? "" : (coverdata)} alt="" onClick={() => { setclicked(!clicked) }} />)}
+                    <div className="namedetail" data-open={open}>
+                        {first ? (
+                            (open ? (
+                                <Link href={"/" + `${TrackTracker}=` + songs[TrackTracker]?.slug?.current} key={songs[TrackTracker]?.slug?.current}>
+                                    <h2 id="cap" className='SongName' data-open={open} onClick={expand}>{totaldata?.name}</h2>
+                                </Link>
+                            ) : (
+                                <h2 id="cap" className='SongName' data-open={open}>{totaldata?.name}</h2>
+                            ))
 
-                <div className="playing" data-open={open} onClick={expand}>
+                        ) : (
+                            <Link href={"/" + `${TrackTracker}=` + songs[TrackTracker]?.slug?.current} key={songs[TrackTracker]?.slug?.current}>
+                                <h2 id="cap" className='SongName'>{totaldata?.name}</h2>
+                            </Link>
+                        )}
+
+                        <p id="tain" data-open={open}>{totaldata?.artists}</p>
+                    </div>
+                </div>
+                ) : (
+                    <div className="playing" data-open={open} onClick={expand} >
+                        {first ? (<img className='coverimage' src={totaldata === null ? "" : (coverdata)} alt="" data-open={open} />) : (<img className={clicked ? `coverimage ${opacity}` : `enlargecoverimage ${opacity}`} src={totaldata === null ? "" : (coverdata)} alt="" onClick={() => { setclicked(!clicked) }} />)}
+                        <div className="namedetail" data-open={open}>
+                            {first ? ((open ? (<Link href={"/" + `${TrackTracker}=` + songs[TrackTracker]?.slug?.current} key={songs[TrackTracker]?.slug?.current}>
+                                <h2 id="cap" className='SongName' data-open={open}>{totaldata?.name}</h2>
+                            </Link>) : (<h2 id="cap" className='SongName' data-open={open}>{totaldata?.name}</h2>))
+
+                            ) : (
+                                <Link href={"/" + `${TrackTracker}=` + songs[TrackTracker]?.slug?.current} key={songs[TrackTracker]?.slug?.current}>
+                                    <h2 id="cap" className='SongName'>{totaldata?.name}</h2>
+                                </Link>
+                            )}
+
+                            <p id="tain" data-open={open} onClick={expand}>{totaldata?.artists}</p>
+                        </div>
+                    </div>
+                )}
+                {/* <div className="playing" data-open={open} onClick={expand}>
                     {first ? (<img className='coverimage' src={totaldata === null ? "" : (coverdata)} alt="" data-open={open} />) : (<img className={clicked ? `coverimage ${opacity}` : `enlargecoverimage ${opacity}`} src={totaldata === null ? "" : (coverdata)} alt="" onClick={() => { setclicked(!clicked) }} />)}
                     <div className="namedetail" data-open={open}>
                         {first ? ((open ? (<Link href={"/" + `${TrackTracker}=` + songs[TrackTracker]?.slug?.current} key={songs[TrackTracker]?.slug?.current}>
@@ -298,7 +336,7 @@ function Controller() {
 
                         <p id="tain" data-open={open}>{totaldata?.artists}</p>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="controls" data-open={open}>
                     <img src="../image/shuffle.png" alt="Shuffle" className={`RS ${mix ? "active" : ""}`} data-open={open} onClick={shuffl} />
@@ -314,7 +352,7 @@ function Controller() {
 
                 <div className="id" data-open={open}>
                     <p className="time" id="time" data-open={open}>{activeSong ? (duration) : "0:00"}</p>
-                    <input type="range" className="seek" data-open={open} id="seeker" style={activeSong ? { backgroundSize: `${Bar}% 100%` } : { backgroundSize: "0% 100%" }} value={activeSong ? (progress) : "0"} min="0" max="1000" onChange={first ? (open? ((e) => seeking(e.target.value)):(null)):((e) => seeking(e.target.value))} />
+                    <input type="range" className="seek" data-open={open} id="seeker" style={activeSong ? { backgroundSize: `${Bar}% 100%` } : { backgroundSize: "0% 100%" }} value={activeSong ? (progress) : "0"} min="0" max="1000" onChange={first ? (open ? ((e) => seeking(e.target.value)) : (null)) : ((e) => seeking(e.target.value))} />
                     <p className="time" id="times" data-open={open}>{activeSong ? (totalDuration) : "0:00"}</p>
                 </div>
             </div></>

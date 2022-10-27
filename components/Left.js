@@ -16,7 +16,7 @@ function Left() {
     const [activesearch, setactivesearch] = useState(false);
     const [activelib, setactivelib] = useState(false);
 
-    const Home =()=>{
+    const Home = () => {
         setButton("icon2")
         setButton2("icon1")
         setButtonlib("icon1")
@@ -27,7 +27,7 @@ function Left() {
         setactivesearch(false)
         setactivelib(false)
     }
-    const Search =()=>{
+    const Search = () => {
         setButtonsearch("icon2")
         setButtonsearch2("icon1")
         setButtonlib("icon1")
@@ -38,7 +38,7 @@ function Left() {
         setactive(false)
         setactivelib(false)
     }
-    const lib =()=>{
+    const lib = () => {
         setButtonlib("icon2")
         setButtonlib2("icon1")
         setButtonsearch("icon1")
@@ -54,45 +54,45 @@ function Left() {
             <img src="../image/Screenshot 2022-07-27 164410.jpg" alt="" className="logo" />
             <ul className="spotify">
                 <Link href="/">
-                <li className={`yours ${active?'activebtn':""}`} onClick={Home}>
-                    <div className="img">
-                        <img src="../image/home.png" alt="" className={button} />
-                        <img src="../image/homes.png" alt="" className={button2} />
-                    </div>
-                    <span>home</span>
-                </li>
+                    <li className={`yours ${active ? 'activebtn' : ""}`} onClick={Home}>
+                        <div className="img">
+                            <img src="../image/home.png" alt="" className={button} />
+                            <img src="../image/homes.png" alt="" className={button2} />
+                        </div>
+                        <span>home</span>
+                    </li>
                 </Link>
                 <Link href="/Search">
-                <li className={`yours ${activesearch?'activebtn':""}`} onClick={Search}>
-                    <div className="img">
-                        <img src="../image/search.png" alt="" className={buttonsearch} />
-                        <img src="../image/searchs.png" alt="" className={buttonsearch2} />
-                    </div>
-                    <span>search</span>
-                </li>
+                    <li className={`yours ${activesearch ? 'activebtn' : ""}`} onClick={Search}>
+                        <div className="img">
+                            <img src="../image/search.png" alt="" className={buttonsearch} />
+                            <img src="../image/searchs.png" alt="" className={buttonsearch2} />
+                        </div>
+                        <span>search</span>
+                    </li>
                 </Link>
                 <Link href="/Library">
-                <li className={`yours ${activelib?'activebtn':""}`} onClick={lib}>
-                    <div className="img">
-                        <img src="../image/library.png" alt="" className={buttonlib} />
-                        <img src="../image/librarys.png" alt="" className={buttonlib2} />
-                    </div>
-                    <span> your library </span>
-                </li>
+                    <li className={`yours ${activelib ? 'activebtn' : ""}`} onClick={lib}>
+                        <div className="img">
+                            <img src="../image/library.png" alt="" className={buttonlib} />
+                            <img src="../image/librarys.png" alt="" className={buttonlib2} />
+                        </div>
+                        <span> your library </span>
+                    </li>
                 </Link>
                 <div className="cp">
-                    <li className={`yours ${active?'activebtn':""}`}>
+                    <li className={`yours ${active ? 'activebtn' : ""}`}>
                         <div className="img">
-                            <img src="../image/Screenshot 2022-07-27 114141.jpg" alt=""  className="bri"/>
+                            <img src="../image/Screenshot 2022-07-27 114141.jpg" alt="" className="bri" />
                         </div>
-                       <span>create playlists</span>  
+                        <span>create playlists</span>
                     </li>
-                <li className={`yours ${active?'activebtn':""}`}>
-                    <div className="img">
-                        <img src="../image/Screenshot 2022-07-27 114241.jpg" alt=""  className="bri" />
-                    </div>
-                    <span>liked songs</span> 
-                </li>
+                    <li className={`yours ${active ? 'activebtn' : ""}`}>
+                        <div className="img">
+                            <img src="../image/Screenshot 2022-07-27 114241.jpg" alt="" className="bri" />
+                        </div>
+                        <span>liked songs</span>
+                    </li>
                 </div>
             </ul>
             <hr style={

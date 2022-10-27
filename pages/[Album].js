@@ -25,16 +25,16 @@ function Album({ song, colours, music }) {
       <div className="container" style={{ background: `linear-gradient(to bottom, ${colours.cover.id.colour.dominant.background}, #000000 45%)` }}>
         <Link href="/" >
           <div>
-          {/* <h1 className='al'>{album[1]}</h1> */}
-                            <img className='navigationbutton' src="../image/back.png" alt="" width="35" />
-                        </div>
+            {/* <h1 className='al'>{album[1]}</h1> */}
+            <img className='navigationbutton' src="../image/back.png" alt="" width="35" />
+          </div>
         </Link>
         <img className='Albumbigcover' src={urlFor(song.cover)} alt={song.name} />
         <div className="det">
           <div className="dettt">
             <h1 className='alname'>{song.album}</h1>
             <h2 className='arname'>{song.artists}</h2>
-            {music.song?.map((item,tracker)=><Songtile key={item._id} album={album[0]} item={item} song={song} tracker={tracker} music={music} />)}
+            {music.song?.map((item, tracker) => <Songtile key={item._id} album={album[0]} item={item} song={song} tracker={tracker} music={music} />)}
 
             {/* <h1>{song.album}</h1>
             <h1>{song.album}</h1>
