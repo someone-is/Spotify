@@ -21,7 +21,7 @@ function index({ songs, covers, music }) {
       <div className="gaane">
         {songs?.map((songs, tracker) => <Tile key={songs._id} songs={songs} music={music} tracker={tracker} selectSongs={selectSongs} covers={covers} />)}
       </div>
-      <div>index</div>
+      {/* <div>index</div> */}
     </>
   )
 }
