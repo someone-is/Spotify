@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { allmusic, bottom, click2, coverurl, musicCover, musicin, opening, photo, playingTrackState, playstate, trackTracker, trackTrackerin, visibility } from '../feature/PlayerAtom';
 import { shuffle } from 'lodash';
 import { fetchSongs } from '../Utilities/FetchSongs';
@@ -10,8 +10,8 @@ import Link from 'next/link';
 import { fetchColours } from '../Utilities/FetchColours';
 function Controller() {
 
+    const setTracks = useSetRecoilState(photo);
     const [songs, setSongs] = useRecoilState(allmusic);
-    const [tracks, setTracks] = useRecoilState(photo);
     const [covers, setCovers] = useRecoilState(musicCover);
     const [music, setMusic] = useRecoilState(musicin);
     const [TrackTrackerin, setTrackTrackerin] = useRecoilState(trackTrackerin);
