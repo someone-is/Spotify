@@ -286,12 +286,12 @@ function Controller() {
                 <div className="playing" data-open={open} onClick={expand}>
                     {first ? (<img className='coverimage' src={totaldata === null ? "" : (coverdata)} alt="" data-open={open} />) : (<img className={clicked ? `coverimage ${opacity}` : `enlargecoverimage ${opacity}`} src={totaldata === null ? "" : (coverdata)} alt="" onClick={() => { setclicked(!clicked) }} />)}
                     <div className="namedetail" data-open={open}>
-                        {first ? ((open ? (<Link href={"/" + `${trackTracker}=` + songs[TrackTracker]?.slug?.current} key={songs[TrackTracker]?.slug?.current}>
+                        {first ? ((open ? (<Link href={"/" + `${TrackTracker}=` + songs[TrackTracker]?.slug?.current} key={songs[TrackTracker]?.slug?.current}>
                             <h2 id="cap" className='SongName' data-open={open}>{totaldata?.name}</h2>
                         </Link>) : (<h2 id="cap" className='SongName' data-open={open}>{totaldata?.name}</h2>))
 
                         ) : (
-                            <Link href={"/" + `${trackTracker}=` + songs[TrackTracker]?.slug?.current} key={songs[TrackTracker]?.slug?.current}>
+                            <Link href={"/" + `${TrackTracker}=` + songs[TrackTracker]?.slug?.current} key={songs[TrackTracker]?.slug?.current}>
                                 <h2 id="cap" className='SongName'>{totaldata?.name}</h2>
                             </Link>
                         )}
