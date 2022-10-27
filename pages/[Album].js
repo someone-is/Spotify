@@ -27,7 +27,7 @@ function Album({ song, colours, music }) {
         <Link href="/" >
           <div>
           {/* <h1 className='al'>{album[1]}</h1> */}
-                            <Image className='navigationbutton' src="../image/back.png" alt="" width="35" />
+                            <Image className='navigationbutton' src="../image/back.png" alt="" width="35" height="35"/>
                         </div>
         </Link>
         <img className='Albumbigcover' src={urlFor(song.cover)} alt={song.name} />
