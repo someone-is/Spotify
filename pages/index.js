@@ -1,14 +1,14 @@
 import React from 'react'
-import { useRecoilState } from 'recoil';
+import {  useSetRecoilState } from 'recoil';
 import { fetchSongs } from '../Utilities/FetchSongs';
 import Tile from '../components/Tile'
 import { bottom, coverurl, playingTrackState} from '../feature/PlayerAtom';
 import { client } from '../library/client'
 
 function index({ songs, covers, music }) {
-  const [activeSong, setactiveSong] = useRecoilState(playingTrackState);
-  const [totaldata, settotaldata] = useRecoilState(bottom);
-  const [coverdata, setcoverdata] = useRecoilState(coverurl);
+  const  setactiveSong = useSetRecoilState(playingTrackState);
+  const  settotaldata = useSetRecoilState(bottom);
+  const  setcoverdata = useSetRecoilState(coverurl);
 
   const selectSongs = (tracks, songs, covers) => {
     setactiveSong(tracks);
