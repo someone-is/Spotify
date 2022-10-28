@@ -1,8 +1,8 @@
 import React from 'react'
-import {  useSetRecoilState } from 'recoil';
+// import {  useSetRecoilState } from 'recoil';
 import { fetchSongs } from '../Utilities/FetchSongs';
 import Tile from '../components/Tile'
-import { bottom, coverurl, playingTrackState} from '../feature/PlayerAtom';
+// import { bottom, coverurl, playingTrackState} from '../feature/PlayerAtom';
 import { client } from '../library/client'
 
 function index({ songs, covers, music }) {
