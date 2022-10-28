@@ -1,23 +1,31 @@
 import React from 'react'
 import { urlFor } from '../library/client'
 import Link from 'next/link'
-import { useRecoilState } from 'recoil';
-import { bottom, click2, playingTrackState, playstate, trackTracker, trackTrackerin, visibility } from '../feature/PlayerAtom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { bottom, click2, coverurl, playingTrackState, playstate, trackTracker, trackTrackerin, visibility } from '../feature/PlayerAtom';
 
 
-function Tile({ songs, tracker, selectSongs, covers, music }) {
+function Tile({ songs, tracker, covers, music }) {
   const [totaldata, settotaldata] = useRecoilState(bottom);
 
   // console.log(music[tracker])
   // console.log(totaldata)
   const [isPlaying, setisPlaying] = useRecoilState(playstate);
   const [activeSong] = useRecoilState(playingTrackState);
-  const [opacity, setopacity] = useRecoilState(visibility);
-  const [TrackTracker, setTrackTracker] = useRecoilState(trackTracker);
+  const setopacity = useSetRecoilState(visibility);
+  const setTrackTracker = useSetRecoilState(trackTracker);
   const [TrackTrackerin, setTrackTrackerin] = useRecoilState(trackTrackerin);
-  const [Click2, setClick2] = useRecoilState(click2);
+  const setClick2 = useSetRecoilState(click2);
 
   // console.log(songs.slug.current)
+  const  setactiveSong = useSetRecoilState(playingTrackState);
+  const  setcoverdata = useSetRecoilState(coverurl);
+
+  const selectSongs = (tracks, songs, covers) => {
+    setactiveSong(tracks);
+    settotaldata(songs);
+    setcoverdata(covers);
+  }
   const Play = () => {
     selectSongs(music[tracker]?.song[TrackTrackerin]?.track.id, music[tracker].song[TrackTrackerin], covers[tracker].cover.id);
     setTrackTracker(tracker);

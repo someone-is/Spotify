@@ -6,20 +6,11 @@ import { bottom, coverurl, playingTrackState} from '../feature/PlayerAtom';
 import { client } from '../library/client'
 
 function index({ songs, covers, music }) {
-  const  setactiveSong = useSetRecoilState(playingTrackState);
-  const  settotaldata = useSetRecoilState(bottom);
-  const  setcoverdata = useSetRecoilState(coverurl);
-
-  const selectSongs = (tracks, songs, covers) => {
-    setactiveSong(tracks);
-    settotaldata(songs);
-    setcoverdata(covers);
-  }
 
   return (
     <>
       <div className="gaane">
-        {songs?.map((songs, tracker) => <Tile key={songs._id} songs={songs} music={music} tracker={tracker} selectSongs={selectSongs} covers={covers} />)}
+        {songs?.map((songs, tracker) => <Tile key={songs._id} songs={songs} music={music} tracker={tracker} covers={covers} />)}
       </div>
       {/* <div>index</div> */}
     </>

@@ -265,6 +265,10 @@ function Controller() {
         }
     }, [width])
 
+    // useEffect(() => {
+    //   setTrackTrackerin(0)
+    // }, [TrackTracker])
+    
     return (
         <>
             <div className={`bottom ${activeSong ? "" : "notplaying"}`} data-open={open} style={first && open ? ({ background: `linear-gradient(to bottom, ${colours[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background}, #000000 100%)` }) : {}}>
