@@ -28,7 +28,7 @@ function Controller() {
         setMusic(musics);
         console.log("hiii", colour[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background)
         setcolours(colour);
-        console.log(colour)
+        // console.log(colour)
         //   console.log(music)
         //   console.log(covers)
         //   console.log(tracks)

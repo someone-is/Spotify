@@ -16,12 +16,14 @@ export default {
         title: 'Track',
         type: 'file',
       },
-    //    {
-    //     name: 'song',
-    //     title: 'Song',
-    //     type: 'array',
-    //     of: [{ type: 'reference',to:[{type: 'music'}] }],
-    //   },
+       {
+        name: 'thumbnail',
+        title: 'Thumbnail',
+        type: 'image',
+        options: {
+          hotspot: true,
+        }
+      },
       {
         name: 'album',
         title: 'Album',
