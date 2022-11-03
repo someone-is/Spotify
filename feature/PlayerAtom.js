@@ -55,3 +55,7 @@ export const opening = atom({
     key: "opening",
     default: false
 });
+export const playingfrom = atom({
+    key: "playingfrom",
+    default: ''
+});

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { allmusic, bottom, click2, coverurl, musicCover, musicin, opening, photo, playingTrackState, playstate, trackTracker, trackTrackerin, visibility } from '../feature/PlayerAtom';
+import { allmusic, bottom, click2, coverurl, musicCover, musicin, opening, photo, playingfrom, playingTrackState, playstate, trackTracker, trackTrackerin, visibility } from '../feature/PlayerAtom';
 import { shuffle } from 'lodash';
 import { fetchSongs } from '../Utilities/FetchSongs';
 import { fetchTracks } from '../Utilities/FetchTracks';
@@ -14,6 +14,7 @@ function Controller() {
     const [songs, setSongs] = useRecoilState(allmusic);
     const [covers, setCovers] = useRecoilState(musicCover);
     const [music, setMusic] = useRecoilState(musicin);
+    const [PlayingFrom, setPlayingFrom] = useRecoilState(playingfrom);
     const [TrackTrackerin, setTrackTrackerin] = useRecoilState(trackTrackerin);
     const [colours, setcolours] = useState([])
     const fetchdata = async () => {
@@ -88,6 +89,7 @@ function Controller() {
         setRepeat(!Repeat)
         console.log(Repeat)
     }
+    // console.log("A", TrackTracker,TrackTrackerin)
 
     const next = () => {
         console.log("on next", TrackTrackerin, TrackTracker, Repeat)
@@ -208,6 +210,10 @@ function Controller() {
     }, [activeSong])
 
     useEffect(() => {
+        if (PlayingFrom === "search") {
+            audio.current.currentTime = 0;
+            setisPlaying(true)
+        }
         if ((isPlaying && music[TrackTracker]?.song[TrackTrackerin]?.track.id === activeSong) && (audio.current.paused || audio.current.currentTime <= 0)) {
             audio.current.play();
             timer();
@@ -218,6 +224,7 @@ function Controller() {
             audio.current.pause();
             console.log("pause")
         }
+        setPlayingFrom('')
     }, [isPlaying, activeSong])
 
     // useEffect(() => {

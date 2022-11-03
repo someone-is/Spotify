@@ -27,11 +27,17 @@ function Tile({ songs, tracker, covers, music }) {
     setcoverdata(covers);
   }
   const Play = () => {
-    selectSongs(music[tracker]?.song[TrackTrackerin]?.track.id, music[tracker].song[TrackTrackerin], covers[tracker].cover.id);
     setTrackTracker(tracker);
+    if (music[tracker]?.song[TrackTrackerin]?.track.id === activeSong) {
+      setTrackTrackerin(TrackTrackerin);
+      selectSongs(music[tracker]?.song[TrackTrackerin]?.track.id, music[tracker].song[TrackTrackerin], covers[tracker].cover.id);
+    }
+    else{
+      setTrackTrackerin(0)
+      selectSongs(music[tracker]?.song[0]?.track.id, music[tracker].song[0], covers[tracker].cover.id);
+    }
     // console.log(music[tracker].song[TrackTrackerin])
     // console.log(totaldata)
-    setTrackTrackerin(TrackTrackerin);
     setopacity("visible");
     if (tracker !== music.length-1) {
       setClick2(1);      
