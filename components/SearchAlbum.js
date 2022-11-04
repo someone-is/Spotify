@@ -16,6 +16,7 @@ function SearchAlbum({ songs, songsSlug }) {
   const setClick2 = useSetRecoilState(click2);
   const [fin, setfin] = useState("")
 
+
   const selectSongs = (tracks, songs, covers) => {
     setactiveSong(tracks);
     settotalsongs(songs);
