@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import Albumse from '../components/Albumse';
 import SearchAlbum from '../components/SearchAlbum';
@@ -10,6 +10,8 @@ function Search({ songsSlug }) {
   const [search, setsearch] = useState("");
   const [musicdata, setmusicdata] = useState([]);
   const [data, setdata] = useState([]);
+
+  const router = useRouter()
 
   const searchingdata = async () => {
     if (search === "" || search === " " || search === "  ") {
@@ -41,11 +43,9 @@ function Search({ songsSlug }) {
     <>
       <div className='Searchbody'>
         <div className="searchbox">
-          <Link href="/" >
-            <div>
+            <div onClick={() => router.back()} >
               <img className='navigationbutton' src="../image/back.png" alt="" width="35" />
             </div>
-          </Link>
           <div className="textandbox">
             <h1>Search</h1>
             <div className="search-icon">
@@ -74,7 +74,7 @@ function Search({ songsSlug }) {
             <div className="rightabove">
               {musicdata.length == 0 ? (<p></p>) : (<h1>Songs</h1>)}
               <div className="rightin">
-                {/* {musicdata.splice(0, 5)?.map((music) => <h3 key={music.name}>{music.name}</h3>)} */}
+  
                 {musicdata.splice(0, 4)?.map((music) => <Searchtile key={music._id} music={music} songsSlug={songsSlug} />)}
               </div>
             </div>
@@ -82,7 +82,7 @@ function Search({ songsSlug }) {
         )}
 
         {data.length == 0 ? "" : (<h1 className='searchbottomh1'>Album</h1>)}
-        {/* {data?.map((songs) => <h2 key={songs.name}>{songs.name}</h2>)} */}
+
         <div className="searchbottom">
           {data.splice(0, 6)?.map((songs) => <SearchAlbum key={songs._id} songs={songs} songsSlug={songsSlug} />)}
         </div>
