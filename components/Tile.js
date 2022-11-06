@@ -7,7 +7,7 @@ import { bottom, click2, coverurl, playingTrackState, playstate, trackTracker, t
 
 function Tile({ songs, tracker, covers, music, colours }) {
   const [totaldata, settotaldata] = useRecoilState(bottom);
-  console.log(colours[tracker].cover.id.colour.dominant.background)
+  // console.log(colours[tracker].cover.id.colour.dominant.background)
   // console.log(music[tracker])
   // console.log(totaldata)
   const [isPlaying, setisPlaying] = useRecoilState(playstate);

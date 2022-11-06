@@ -6,7 +6,7 @@ import { fetchSongs } from '../Utilities/FetchSongs';
 import { client } from '../library/client'
 import MainComponent from '../components/MainComponent';
 
-function index({ songs, covers, music, colours }) {
+function Index({ songs, covers, music, colours }) {
 
   const [greetings, setGreetings] = useState("Good Morning");
 
@@ -37,7 +37,7 @@ function index({ songs, covers, music, colours }) {
         {songs?.map((songs, tracker) => <Tile key={songs._id} songs={songs} music={music} tracker={tracker} covers={covers} colours={colours} />)}
       </div> */}
         {/* <div>index</div> */}
-        <a href="https://iconscout.com/icons/spotify" target="_blank">Spotify Logo Icon</a> by <a href="https://iconscout.com/contributors/alexis-doreau">Alexis Doreau</a> on <a href="https://iconscout.com">IconScout</a>
+        {/* <a href="https://iconscout.com/icons/spotify" target="_blank">Spotify Logo Icon</a> by <a href="https://iconscout.com/contributors/alexis-doreau">Alexis Doreau</a> on <a href="https://iconscout.com">IconScout</a> */}
       </div>
     </>
   )
@@ -58,4 +58,4 @@ export const getServerSideProps = async () => {
     props: { songs, covers, music, colours }
   }
 }
-export default index
+export default Index
