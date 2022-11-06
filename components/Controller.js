@@ -27,7 +27,7 @@ function Controller() {
         setTracks(track);
         setCovers(cover);
         setMusic(musics);
-        console.log("hiii", colour[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background)
+        // console.log("hiii", colour[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background)
         setcolours(colour);
         // console.log(colour)
         //   console.log(music)
@@ -275,7 +275,7 @@ function Controller() {
     // useEffect(() => {
     //   setTrackTrackerin(0)
     // }, [TrackTracker])
-    console.log(colours)
+    // console.log(colours)
     return (
         <>
             <div className={`bottom ${activeSong ? "" : "notplaying"}`} data-open={open} >
