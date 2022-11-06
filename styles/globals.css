@@ -97,12 +97,15 @@ a {
 
   .searchSongandartistsA,
   .selectedsearchplateA,
-  .searchSongandartists, .Songandartists p {
+  .searchSongandartists,
+  .Songandartists p {
     color: rgba(255, 255, 255, 0.807);
   }
-.Songandartists:hover p{
- color: white;
-}
+
+  .searchSongandartists,.selectedsearchSongandartists,.Songandartists:hover p {
+    color: white;
+  }
+
   .selectedsearchtile {
     background: rgba(255, 255, 255, 0.33);
   }
@@ -122,11 +125,13 @@ a {
   .left li {
     color: rgb(194, 189, 189);
   }
-  .left hr{
+
+  .left hr {
     color: rgba(255, 255, 255, 0.5) !important;
   }
-  #tain{
-  color: rgba(255, 255, 255, 0.541);
+
+  #tain {
+    color: rgba(255, 255, 255, 0.541);
   }
 }
 
@@ -139,39 +144,51 @@ a {
     /* border: 1px solid #3bb815; */
     background: rgba(139, 139, 139, 0.252);
   }
-  #bottomplay{
+.albumsmall{
+  filter: invert(1);
+}
+  #bottomplay {
     filter: brightness(150%);
   }
-  #tain{
+
+  #tain {
     color: rgb(0, 0, 0);
-    }
+  }
+
   .left li {
     color: rgb(59, 59, 59);
   }
-#seeker{
-  background-image: linear-gradient(#000000, #000000) !important;
-}
-#seeker:hover{
-  background-image: linear-gradient(#3bb815, #3bb815) !important;
-}
+
+  #seeker {
+    background-image: linear-gradient(#000000, #000000) !important;
+  }
+
+  #seeker:hover {
+    background-image: linear-gradient(#3bb815, #3bb815) !important;
+  }
+
   .left li:hover {
     color: rgb(0, 0, 0);
   }
 
   .activebtn {
     filter: brightness(150%);
-    color: rgb(0, 0, 0);
+    font-weight: 900 !important;
+    color: rgb(0, 0, 0) !important;
   }
+
   .PN {
     filter: brightness(100%) !important;
   }
-  
+
   .RS {
     filter: brightness(100%) !important;
   }
-  .time{
+
+  .time {
     color: black !important;
   }
+
   .inin {
     background: linear-gradient(to bottom, rgba(102, 51, 153, 0), rgb(255, 255, 255));
   }
@@ -221,25 +238,31 @@ a {
     width: 20px !important;
     aspect-ratio: 1/1;
   }
-.spotify{
-  margin-top: 15px !important;
-}
-.left hr{
-  height: 2px !important;
-  width: 90% !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-}
+
+  .spotify {
+    margin-top: 15px !important;
+  }
+
+  .left hr {
+    height: 2px !important;
+    width: 90% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+
   .icon2 {
     margin: 5px 10px;
     width: 20px !important;
     aspect-ratio: 1/1;
   }
-  .bri{
+
+  .bri {
     width: 20px !important;
   }
-.yours{
-  margin-bottom: 10px !important;
-}
+
+  .yours {
+    margin-bottom: 10px !important;
+  }
+
   .toptile {
     /* border: 1px solid black; */
     background-color: rgba(139, 139, 139, 0.252);
@@ -1515,9 +1538,8 @@ input[type="”range”"]::-webkit-slider-thumb {
 
 .searchSongandartists p:hover {
   text-decoration: underline;
-  color: white;
+  /* color: white; */
   transition: 0.2s ease-in;
-
 }
 
 .searchSongandartists h3 {
@@ -1782,7 +1804,7 @@ input[type="”range”"]::-webkit-slider-thumb {
 
 .selectedsearchSongandartists p:hover {
   text-decoration: underline;
-  color: white;
+  /* color: white; */
   transition: 0.2s ease-in;
 }
 
@@ -2334,10 +2356,10 @@ input[type="”range”"]::-webkit-slider-thumb {
     opacity: 1;
   }
 
-  .left li:hover {
-    /* color: rgb(194, 189, 189); */
+  /* .left li:hover {
+    color: rgb(194, 189, 189);
 
-  }
+  } */
 
   .icon2 {
     position: absolute;

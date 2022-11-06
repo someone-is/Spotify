@@ -54,9 +54,9 @@ function Songtile({ item, tracker, song, music, album }) {
             <div className={item.track.id === activeSong && isPlaying ? "plate activeborder" : "plate"}>
                 <div className="smallplaypauseno">
                     {item.track.id === activeSong && isPlaying ? (
-                        <Image src="/image/SmallPause.png" width={20} height={20} onClick={Play} alt="play" />
+                        <Image src="/image/SmallPause.png" width={20} height={20} onClick={Play} className="albumsmall" alt="play" />
                     ) : (
-                        <Image src="/image/SmallPlay.png" width={20} height={20} onClick={Play} alt="pause" />
+                        <Image src="/image/SmallPlay.png" width={20} height={20} onClick={Play} className="albumsmall" alt="pause" />
                     )}
                     {/* <span>{tracker+1}</span> */}
                 </div>
