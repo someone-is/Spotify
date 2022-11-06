@@ -35,14 +35,22 @@ function SearchAlbum({ songs, songsSlug }) {
     } else {
       console.log("first")
       setTrackTracker(finder)
-      setTrackTrackerin(0)
+      if (songs.song[TrackTrackerin]?.track.id === activeSong) {
+        setTrackTrackerin(TrackTrackerin);
+        selectSongs(songs.song[TrackTrackerin].track.id, songs.song[TrackTrackerin], songs.cover.id)
+      }
+      else{
+        setTrackTrackerin(0)
+        selectSongs(songs.song[0].track.id, songs.song[0], songs.cover.id)
+      }
+      // setTrackTrackerin(0)
     }
-    selectSongs(songs.song[0].track.id, songs.song[0], songs.cover.id)
+    // selectSongs(songs.song[0].track.id, songs.song[0], songs.cover.id)
     setopacity("visible");
     if (songs.song.length !== songsSlug[finder]?.song.length - 1) {
       setClick2("yes");
     }
-    if (songs.song[0].track.id === activeSong) {
+    if (songs.song[TrackTrackerin]?.track.id === activeSong) {
       setisPlaying(!isPlaying);
     }
   }
@@ -109,7 +117,7 @@ function SearchAlbum({ songs, songsSlug }) {
 
       </div>) : (<div className={songs.song[TrackTrackerin]?.track.id === activeSong && isPlaying ? "selectedsearchtile" : "searchtile"}>
         <img className={songs.song[TrackTrackerin]?.track.id === activeSong && isPlaying ? "selectedSearchbigcover" : "Searchbigcover"} src={urlFor(songs.cover)} alt="" />
-        {songs.song[0].track.id === activeSong && isPlaying ? (
+        {songs.song[TrackTrackerin]?.track.id === activeSong && isPlaying ? (
           <img className='SearchAGreenPlay' src="../image/GreenPause.png" onClick={Play} alt="play" />
         ) : (
           <img className='SearchAGreenPlay' src="../image/GreenPlay.png" onClick={Play} alt="pause" />

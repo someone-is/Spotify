@@ -275,10 +275,10 @@ function Controller() {
     // useEffect(() => {
     //   setTrackTrackerin(0)
     // }, [TrackTracker])
-    
+    console.log(colours)
     return (
         <>
-            <div className={`bottom ${activeSong ? "" : "notplaying"}`} data-open={open} style={first && open ? ({ background: `linear-gradient(to bottom, ${colours[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background}, #000000 100%)` }) : {}}>
+            <div className={`bottom ${activeSong ? "" : "notplaying"}`} data-open={open} >
                 <div className="topopennav" data-open={open}>
                     <img src="chevron.svg" alt="" className="dropdownbutton" onClick={() => { setopen(false) }} data-open={open} />
                     <div className="detailal"><p>playing from playlist</p><p className='topname'>{totaldata?.album}</p></div>
@@ -366,7 +366,23 @@ function Controller() {
                     <input type="range" className="seek" data-open={open} id="seeker" style={activeSong ? { backgroundSize: `${Bar}% 100%` } : { backgroundSize: "0% 100%" }} value={activeSong ? (progress) : "0"} min="0" max="1000" onChange={first ? (open ? ((e) => seeking(e.target.value)) : (null)) : ((e) => seeking(e.target.value))} />
                     <p className="time" id="times" data-open={open}>{activeSong ? (totalDuration) : "0:00"}</p>
                 </div>
-            </div></>
+            </div>
+            <style jsx> {`@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+            .bottom{
+                ${first && open ? (`background:linear-gradient(to bottom, ${colours[TrackTracker]?.cover?.id?.colour?.lightMuted?.background}, ${colours[TrackTracker]?.cover?.id?.colour?.lightMuted?.background} 100%)`) : {}}
+            }}
+            @media (prefers-color-scheme: dark) {
+                html {
+                  color-scheme: dark;
+                }
+                          .bottom{
+                              ${first && open ? (`background:linear-gradient(to bottom, ${colours[TrackTracker]?.cover?.id?.colour?.darkVibrant?.background}, black 100%)`) : {}}
+                          }}
+            `} </style>
+            </>
     )
 }
 

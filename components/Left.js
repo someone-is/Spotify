@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil';
 import { opening } from '../feature/PlayerAtom';
+import Spotifylogo from './Spotifylogo';
 function Left() {
     const [open] = useRecoilState(opening)
 
@@ -51,7 +52,9 @@ function Left() {
     }
     return (
         <div className="left" data-open={open}>
-            <img src="../image/Screenshot 2022-07-27 164410.jpg" alt="" className="logo" />
+            {/* <img src="../image/Screenshot 2022-07-27 164410.jpg" alt="" className="logo" /> */}
+            {/* <img src="https://betterstudio.com/wp-content/uploads/2022/09/4-Spotify-logo-SVG-betterstudio.com_.svg" alt="" className="logo" /> */}
+            <Spotifylogo width={230} height={100}className='logo'/>
             <ul className="spotify">
                 <Link href="/">
                     <li className={`yours ${active ? 'activebtn' : ""}`} onClick={Home}>
