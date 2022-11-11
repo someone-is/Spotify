@@ -3974,6 +3974,20 @@ input[type="”range”"]::-webkit-slider-thumb {
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .searchbottomartist {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    row-gap: 8px;
+    column-gap: 0;
+    min-height: fit-content;
+    margin-bottom: 200px;
+  }
+}
+
 @media only screen and (max-height: 550px) and (max-width:600px) {
   .left {
     display: none;
