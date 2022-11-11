@@ -54,6 +54,12 @@ export default {
         type: 'string',
       },
       {
+        name: 'artist',
+        title: 'Artist',
+        type: 'array',
+        of: [{ type: 'reference',to:[{type: 'artists'}] }],
+      },
+      {
         name: 'duration',
         title: 'Duration',
         type: 'string',

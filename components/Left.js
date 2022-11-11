@@ -51,6 +51,7 @@ function Left() {
         // setactive(false)
         // setactivesearch(false)
     }
+
     useEffect(() => {
         if (router.pathname === "/") {
             Home();
@@ -60,6 +61,14 @@ function Left() {
         }
         if (router.pathname === "/Library") {
             lib();
+        }
+        if (router.pathname !== "/Library" && router.pathname !== "/Search" && router.pathname !== "/") {
+            setButtonsearch("icon1")
+            setButtonsearch2("icon2")
+            setButton("icon1")
+            setButton2("icon2")
+            setButtonlib("icon1")
+            setButtonlib2("icon2")
         }
     }, [router.pathname])
 

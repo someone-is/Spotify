@@ -82,8 +82,14 @@ function Controller() {
         }
     }
     const shuffl = () => {
-        shuffle(index);
         setmix(!mix)
+        console.log(mix)
+        if (mix === true) {
+            setMusic(shuffle(music));
+        }
+        else{
+            setMusic(initial);
+        }
     }
     const repeat = () => {
         setRepeat(!Repeat)
@@ -280,7 +286,7 @@ function Controller() {
         <>
             <div className={`bottom ${activeSong ? "" : "notplaying"}`} data-open={open} >
                 <div className="topopennav" data-open={open}>
-                    <img src="chevron.svg" alt="" className="dropdownbutton" onClick={() => { setopen(false) }} data-open={open} />
+                    <img src="chevron.svg" alt="Drop" className="dropdownbutton" onClick={() => { setopen(false) }} data-open={open} />
                     <div className="detailal"><p>playing from playlist</p><p className='topname'>{totaldata?.album}</p></div>
                 </div>
                 <audio src={activeSong} ref={audio} />

@@ -6,7 +6,7 @@ import { fetchSongs } from '../Utilities/FetchSongs';
 import { client } from '../library/client'
 import MainComponent from '../components/MainComponent';
 
-function Index({ songs, covers, music, colours }) {
+function Index({ songs, covers, music, colours, artists }) {
 
   const [greetings, setGreetings] = useState("Good Morning");
 
@@ -32,7 +32,7 @@ function Index({ songs, covers, music, colours }) {
         <div className="greetings">
           <h1>{greetings}</h1>
         </div>
-        <MainComponent songs={songs} music={music} covers={covers} colours={colours} />
+        <MainComponent songs={songs} music={music} covers={covers} colours={colours} artists={artists}/>
         {/* <div className="gaane">
         {songs?.map((songs, tracker) => <Tile key={songs._id} songs={songs} music={music} tracker={tracker} covers={covers} colours={colours} />)}
       </div> */}
@@ -54,8 +54,10 @@ export const getServerSideProps = async () => {
   const music = await client.fetch(pagesongs);
   const color = `*[_type == "songs"][]{cover {"id":asset->.metadata{"colour":palette{dominant{background}}}}}`;
   const colours = await client.fetch(color);
+  const artist = `*[_type == "artists"]{...,"songs": *[_type == "music" && references(^._id)]{name}}`;
+  const artists = await client.fetch(artist);
   return {
-    props: { songs, covers, music, colours }
+    props: { songs, covers, music, colours, artists}
   }
 }
 export default Index

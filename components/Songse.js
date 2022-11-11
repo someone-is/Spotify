@@ -20,11 +20,11 @@ function Songse({ music, songsSlug }) {
   }
 
   const Play = () => {
-    const Aslug = music.albumslug
+    const Aslug = music.relatedalbum.slug.current
     const Sslug = music.slug.current
     const ind = 0;
     const finder = songsSlug.findIndex(function (item) {
-      console.log(item)
+      // console.log(item)
       if (item.slug.current === Aslug) {
         const infinder = item.song.findIndex(function (item) {
           return item.slug.current === Sslug

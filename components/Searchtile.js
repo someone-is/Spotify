@@ -5,7 +5,7 @@ import { bottom, click2, coverurl, playingfrom, playingTrackState, playstate, tr
 import { urlFor } from '../library/client'
 
 function Searchtile({ music, songsSlug }) {
-
+console.log(music.relatedalbum.slug.current)
     const [activeSong, setactiveSong] = useRecoilState(playingTrackState);
     const [isPlaying, setisPlaying] = useRecoilState(playstate);
     const setTrackTrackerin = useSetRecoilState(trackTrackerin);
@@ -81,7 +81,7 @@ function Searchtile({ music, songsSlug }) {
         }
     }
     const Play = () => {
-        const Aslug = music.albumslug
+        const Aslug = music.relatedalbum.slug.current
         const Sslug = music.slug.current
         const ind = 0;
         const finder = songsSlug.findIndex(function (item) {
