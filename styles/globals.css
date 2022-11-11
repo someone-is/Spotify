@@ -3978,11 +3978,12 @@ input[type="”range”"]::-webkit-slider-thumb {
   .searchbottomartist {
     display: grid;
     grid-template-columns: auto auto;
-    width: 100%;
-    height: auto;
+    width: 106%;
+    height: 550px;
     overflow-x: hidden;
     row-gap: 8px;
     column-gap: 0;
+    margin-left: -10px;
     min-height: fit-content;
     margin-bottom: 200px;
   }
