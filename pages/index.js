@@ -25,7 +25,7 @@ function Index({ songs, covers, music, colours, artists }) {
   useEffect(() => {
     updateTime()
   })
-
+console.log(artists)
   return (
     <>
       <div className="maincontainer">
@@ -54,7 +54,7 @@ export const getServerSideProps = async () => {
   const music = await client.fetch(pagesongs);
   const color = `*[_type == "songs"][]{cover {"id":asset->.metadata{"colour":palette{dominant{background}}}}}`;
   const colours = await client.fetch(color);
-  const artist = `*[_type == "artists"]{...,"songs": *[_type == "music" && references(^._id)]{name}}`;
+  const artist = `*[_type == "artists"]{...,profile{...,"id":asset->.metadata{"colour":palette}},"songs": *[_type == "music" && references(^._id)]{name}}`;
   const artists = await client.fetch(artist);
   return {
     props: { songs, covers, music, colours, artists}

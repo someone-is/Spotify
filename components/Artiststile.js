@@ -19,6 +19,25 @@ function Artiststile({ artists }) {
                 </div>
             </div>
             </Link>
+            <style jsx>{`
+            @media (prefers-color-scheme: dark) {
+                html {
+                  color-scheme: dark;
+                }
+                .artistprofile{
+                    background:${artists.profile.id.colour.lightVibrant.background}99; 
+                }
+
+            }
+            @media (prefers-color-scheme: light) {
+                html {
+                  color-scheme: light;
+                }
+                .artistprofile{
+                    background:${artists.profile.id.colour.darkVibrant.background}99; 
+                }
+            }`
+            }</style>
         </>
     )
 }
