@@ -183,11 +183,29 @@ a {
     color: #ffffffb6;
     border-bottom: rgba(255, 255, 255, 0.468) solid 1px;
   }
+  .numsmall {
+    filter: invert(0);
+  }
+  .selectednumsmall{
+    filter: invert(0);
+  }
+  .selectedArtistThumb {
+    filter: brightness(40%);
+  }
 }
 
 @media (prefers-color-scheme: light) {
   html {
     color-scheme: light;
+  }
+  .selectedArtistThumb {
+    filter: brightness(100%);
+  }
+  .numsmall{
+    filter: invert(1);
+  }
+  .selectednumsmall{
+    filter: invert(1);
   }
   .title {
     color: #000000b6;
@@ -199,7 +217,9 @@ a {
 
   .selectedmusicartistname {
     transition: 0.3s ease-in;
-    color: #1ED760;
+    /* color: #1ED760; */
+    color: rgb(35, 255, 50);
+
   }
 
   .Artistsongpplate:hover {
@@ -2627,7 +2647,7 @@ input[type="”range”"]::-webkit-slider-thumb {
   height: 50px;
   width: 50px;
   transition: 0.3s ease-in;
-  filter: brightness(40%);
+  /* filter: brightness(40%); */
 }
 
 .Artistsmall {
