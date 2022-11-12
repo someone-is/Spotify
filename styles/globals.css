@@ -179,13 +179,20 @@ a {
     transition: 0.3s ease-in;
     color: rgb(35, 255, 50);
   }
+  .title {
+    color: #ffffffb6;
+    border-bottom: rgba(255, 255, 255, 0.468) solid 1px;
+  }
 }
 
 @media (prefers-color-scheme: light) {
   html {
     color-scheme: light;
   }
-
+  .title {
+    color: #000000b6;
+    border-bottom: rgba(0, 0, 0, 0.568) solid 1px;
+  }
   .musicartistname {
     transition: 0.3s ease-in;
   }
@@ -2600,7 +2607,7 @@ input[type="”range”"]::-webkit-slider-thumb {
   justify-content: center;
   overflow: hidden;
   margin-left: 20px;
-  background-color: #1ED760;
+  /* background-color: #1ED760; */
   border-radius: 5px;
   height: 50px;
   width: 50px;
@@ -2647,7 +2654,55 @@ input[type="”range”"]::-webkit-slider-thumb {
   padding: 10px 15px;
   transition: 0.3s ease-in;
 }
-
+.title {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 30px;
+  text-transform: uppercase;
+  font-size: 14px;
+  /* background-color: #ffffff6f; */
+  /* border-radius: 5px; */
+  /* border-bottom: #ffffff solid 1px; */
+  margin-bottom: 10px;
+  justify-content: space-between;
+  padding: 10px 15px 17px 15px;
+  transition: 0.3s ease-in;
+}
+.titleno {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  /* background-color: #1ED760; */
+  margin: -12px;
+  cursor: pointer;
+}
+.titlename {
+  width: 35%;
+  min-width: 100px;
+  margin-left: 80px;
+  display: flex;
+  /* height: 55px; */
+  flex-direction: column;
+  /* background-color: rgb(42, 42, 25); */
+  align-content: center;
+}
+.titlealbum {
+  height: 100%;
+  display: flex;
+  width: 50%;
+  margin-left: 10px;
+  min-width: 100px;
+  align-items: center;
+  /* background-color: #1ED760; */
+}
+.titleduration {
+  flex: auto;
+  text-align: end;
+}
 .Artistsongpplate:hover .number p {
   opacity: 0;
 }
@@ -2967,7 +3022,9 @@ input[type="”range”"]::-webkit-slider-thumb {
     width: 35px;
     transition: 0.1s;
   }
-
+.title{
+  display: none;
+}
   .id {
     display: flex;
     gap: 1%;

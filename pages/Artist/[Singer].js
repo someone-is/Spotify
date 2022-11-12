@@ -23,6 +23,21 @@ function Singer({ artists , songsSlug}) {
         <div className="bottomsection">
           <h1 className='singername'>{artists.name}</h1>
           <div className="artistsongplate">
+          <div className="title">
+          <div className='titleno'>
+          <p>#</p>
+          </div>
+          <div className="Artistsongcover">
+          <p>Title</p>
+          </div>
+          <div className="titlename">
+            <div><p></p></div>
+          </div>
+          <div className="titlealbum">
+          <div><p>Album</p></div>
+          </div>
+          <p className="titleduration">Duration</p>
+        </div>
             {artists.songs.map((AS,tracker)=><ArtistSongsPlate key={AS._id} tracker={tracker} AS={AS} songsSlug={songsSlug}/>)}
           </div>
         </div>
