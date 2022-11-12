@@ -79,11 +79,16 @@ a {
     color: white;
     background-color: #3737379e;
   }
-
   .bottom {
-    background: rgb(22, 22, 22);
+    /* background: rgb(22, 22, 22); */
+    background: rgba(22, 22, 22, 0.862);
   }
-
+  @media only screen and (max-width: 600px) {
+  .bottom {
+    /* background: rgb(22, 22, 22); */
+    background: rgba(22, 22, 22, 0.763);
+  }
+  }
   .loading {
     background: rgb(0, 0, 0);
   }
