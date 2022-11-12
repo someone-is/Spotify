@@ -3978,14 +3978,20 @@ input[type="”range”"]::-webkit-slider-thumb {
   .searchbottomartist {
     display: grid;
     grid-template-columns: auto auto;
-    width: 106%;
-    height: 550px;
-    overflow-x: hidden;
+    width: 100%;
+    /* height: 550px; */
+    padding: 10px 0;
+    /* background-color: #1ED760; */
+    overflow-x: visible;
+    overflow-y: visible;
     row-gap: 8px;
-    column-gap: 0;
-    margin-left: -10px;
+    column-gap: 2%;
+    margin-left: 0px;
     min-height: fit-content;
     margin-bottom: 200px;
+  }
+  .searchbottomh1{
+    margin-block-end: 0.5em;
   }
   .artistpagetile {
     display: flex;
